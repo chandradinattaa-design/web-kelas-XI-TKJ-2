@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WELCOME TO CLAS XI TKJ 2</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== PARTIKEL BACKGROUND ===== -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-bg-blob"></div>
+    <div class="loading-bg-blob loading-bg-blob-2"></div>
+
+    <div class="loading-content">
+      <div class="loading-logo-wrapper">
+        <img src="assets/img/logo-kelas.jpeg" alt="Logo XI TKJ 2" class="loading-logo" />
+        <div class="loading-logo-glow"></div>
+      </div>
+
+      <h2 class="loading-title" id="loadingTitle"></h2>
+      <p class="loading-tagline">Computer and Network Engineering</p>
+
+      <div class="loading-bar-wrapper">
+        <div class="loading-bar">
+          <div class="loading-bar-fill" id="loadingBarFill"></div>
+        </div>
+        <div class="loading-percent" id="loadingPercent">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-brand">XI TKJ 2</div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#hero">Home</a>
+      <a href="#students">Siswa</a>
+      <a href="#about">Tentang</a>
+      <a href="#timeline">Jejak</a>
+      <a href="#gallery">Galeri</a>
+      <a href="#guestbook">Buku Tamu</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-menu" id="navMenu">
+      <a href="https://wa.me/628211378039" target="_blank">WhatsApp Admin</a>
+      <a href="https://instagram.com/classof_tkj2" target="_blank">Instagram Kelas</a>
+      <a href="https://tiktok.com/@cancan8890._" target="_blank">TikTok Kelas</a>
+    </div>
+  </nav>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+
+    <!-- Background Foto Slideshow -->
+    <div class="hero-bg">
+      <div class="hero-bg-photo bg-photo-1 active" id="bgPhoto1"></div>
+      <div class="hero-bg-photo bg-photo-2" id="bgPhoto2"></div>
+      <div class="hero-bg-overlay"></div>
+    </div>
+
+    <!-- Konten Hero -->
+    <div class="hero-content">
+      <div class="hero-logo-wrapper">
+        <img src="assets/img/logo-kelas.jpeg" alt="Logo XI TKJ 2" class="hero-logo" />
+      </div>
+      <div class="hero-3d-container" id="hero3dContainer">
+        <div id="loading-3d" style="color: #8B7AB8; text-align: center; padding: 2rem;">
+          Memuat...
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-title" id="heroTitle">
+          <span class="welcome-text" id="welcomeText"></span>
+          <span class="class-text" id="classText"></span>
+        </h1>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== WAVE DIVIDER ===== -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#F5F2FA"></path>
+    </svg>
+  </div>
+
+  <!-- ===== DAFTAR SISWA ===== -->
+  <section class="students" id="students">
+    <h2 class="section-title">Daftar Siswa</h2>
+
+    <div class="teacher-card">
+      <div class="teacher-jabatan">Wali Kelas</div>
+      <img src="assets/img/wali-kelas.jpg" alt="Wali Kelas" class="teacher-photo" onerror="this.style.background='#C0C0C0'" />
+      <h3 class="teacher-name">Handayani S.Kom</h3>
+      <p class="teacher-sifat">Si paling sabar & penyayang</p>
+    </div>
+
+    <div class="students-grid" id="studentsGrid">
+      <!-- Diisi otomatis oleh JavaScript -->
+    </div>
+  </section>
+
+  <!-- ===== WAVE DIVIDER ===== -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#FAF7F2"></path>
+    </svg>
+  </div>
+
+  <!-- ===== TENTANG KELAS ===== -->
+  <section class="about" id="about">
+    <h2 class="section-title">Tentang Kelas</h2>
+    <p class="about-text" id="aboutText"></p>
+    <audio id="typingSound" src="assets/audio/typing.mp3" preload="auto"></audio>
+  </section>
+
+  <!-- ===== WAVE DIVIDER ===== -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#F5F2FA"></path>
+    </svg>
+  </div>
+
+  <!-- ===== JEJAK KELAS (TIMELINE) ===== -->
+  <section class="timeline" id="timeline">
+    <h2 class="section-title">Jejak Kelas</h2>
+    <div class="timeline-wrapper" id="timelineWrapper">
+      <!-- Diisi otomatis oleh JavaScript -->
+    </div>
+  </section>
+
+  <!-- ===== WAVE DIVIDER ===== -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#FAF7F2"></path>
+    </svg>
+  </div>
+
+  <!-- ===== GALERI ===== -->
+  <section class="gallery" id="gallery">
+    <h2 class="section-title">Galeri</h2>
+
+    <div class="gallery-filters" id="galleryFilters">
+  <button class="filter-btn active" data-filter="semua">Semua</button>
+  <button class="filter-btn" data-filter="agustus">17-an</button>
+  <button class="filter-btn" data-filter="batik">Batik</button>
+  <button class="filter-btn" data-filter="bukber">Bukber</button>
+  <button class="filter-btn" data-filter="lab">Lab</button>
+  <button class="filter-btn" data-filter="prestasi">Prestasi</button>
+  <button class="filter-btn" data-filter="wali">Wali Kelas</button>
+</div>
+
+    <div class="coverflow-wrapper">
+      <button class="coverflow-nav prev" id="coverflowPrev" aria-label="Sebelumnya">‹</button>
+      <div class="coverflow" id="coverflow">
+        <!-- Diisi otomatis oleh JavaScript -->
+      </div>
+      <button class="coverflow-nav next" id="coverflowNext" aria-label="Berikutnya">›</button>
+    </div>
+
+    <div class="coverflow-caption" id="coverflowCaption">Lomba 17 Agustusan 1</div>
+  </section>
+
+  <!-- ===== WAVE DIVIDER ===== -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#F5F2FA"></path>
+    </svg>
+  </div>
+
+  <!-- ===== BUKU TAMU ===== -->
+  <section class="guestbook" id="guestbook">
+    <h2 class="section-title">Buku Tamu</h2>
+    <form class="guestbook-form" id="guestbookForm">
+      <input type="text" placeholder="Nama kamu" id="guestName" required />
+      <textarea placeholder="Tinggalkan pesan..." id="guestMessage" required></textarea>
+      <button type="submit" class="btn">Kirim Pesan</button>
+    </form>
+    <div class="guestbook-cards" id="guestbookCards">
+      <!-- Pesan tamu akan muncul di sini -->
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2026 XI TKJ 2. All rights reserved.</p>
+    <p class="footer-admin">
+      Admin:
+      <a href="https://wa.me/628211378039" target="_blank">WhatsApp</a> |
+      <a href="https://instagram.com/classof_tkj2" target="_blank">Instagram</a> |
+      <a href="https://tiktok.com/@cancan8890._" target="_blank">TikTok</a>
+    </p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
